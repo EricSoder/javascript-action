@@ -1,0 +1,28 @@
+{
+  "name": "javascript-action",
+  "version": "1.0.0",
+  "description": "Javascript github action example",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricSoder/javascript-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricSoder/javascript-action/issues"
+  },
+  "homepage": "https://github.com/EricSoder/javascript-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
