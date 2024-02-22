@@ -6,30 +6,53 @@
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __importDefault(__nccwpck_require__(851));
-const github_1 = __importDefault(__nccwpck_require__(9581));
-try {
-    // `who-to-greet` input defined in action metadata file
-    const nameToGreet = core_1.default.getInput("who-to-greet");
-    console.log(`Hello ${nameToGreet}!`);
-    const time = new Date().toTimeString();
-    core_1.default.setOutput("time", time);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github_1.default.context.payload, undefined, 2);
-    console.log(`The event payload: ${payload}`);
-}
-catch (error) {
-    if (error instanceof Error) {
-        console.log(error.message);
+const core = __importStar(__nccwpck_require__(851));
+const github = __importStar(__nccwpck_require__(9581));
+async function run() {
+    try {
+        // `who-to-greet` input defined in action metadata file
+        const nameToGreet = core.getInput("who-to-greet");
+        console.log(`Hello ${nameToGreet}!`);
+        const time = new Date().toTimeString();
+        core.setOutput("time", time);
+        // Get the JSON webhook payload for the event that triggered the workflow
+        const payload = JSON.stringify(github.context.payload, undefined, 2);
+        console.log(`The event payload: ${payload}`);
     }
-    else {
-        console.log("An error occurred", error);
+    catch (error) {
+        if (error instanceof Error) {
+            console.log(error.message);
+        }
+        else {
+            console.log("An error occurred", error);
+        }
     }
 }
+run();
 
 
 /***/ }),
